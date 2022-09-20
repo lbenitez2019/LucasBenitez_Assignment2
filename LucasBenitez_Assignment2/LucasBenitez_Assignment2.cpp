@@ -46,21 +46,34 @@ int main()
 		int lc = 1;	      // loop counter
 
 		// Table header (field width shown below for formatting)
-		//        12345 12345678901234567 123456789012345678 123456789012345678 123456789012345678901
-		cout << "-------------------------------------------------------------------------------------" << endl;
-		cout << "| Mth | Monthly payment | Interest payment | Priciple payment | Remaining balance   |" << endl;
-		cout << "-------------------------------------------------------------------------------------" << endl;
+		//       123456 123456789012345678 123456789012345678 123456789012345678 123456789012345678901
+		//       12   123456         1234567890         1234567890         1234567890    
+		//         XXX     $XXXXXX.XX         $XXXXXX.XX         $XXXXXX.XX         $XXXXXXX.XX       
+		cout << "--------------------------------------------------------------------------------------" << endl;
+		cout << "| Mth | Monthly payment  | Interest payment | Priciple payment | Remaining balance   |" << endl;
+		cout << "--------------------------------------------------------------------------------------" << endl;
 		while (lc < n + 1)
 		{
 			mi = r * rb;  // calculate monthly interest amount
 			mp = M - mi;  // calculate monthly priciple amount
-			rb = rb - mp; // calculate remaining balance 
+			rb = rb - mp; // calculate remaining balance
 
-			cout << setfill(' ') << setw(4) << lc;
-			cout << "      $" << setfill(' ') << setw(10) << M;
-			cout << "      $" << setfill(' ') << setw(10) << mi;
-			cout << "        $" << setfill(' ') << setw(10) << mp;
-			cout << "        $" << setfill(' ') << setw(10) << rb;
+
+			// Print one row of the table, formatted and aligned 
+			cout << setfill(' ') << setw(2) << " ";	// 2 spaces of padding
+			cout << setfill(' ') << setw(3) << lc;	// "Mth" field is 3 digits wide
+
+			cout << setfill(' ') << setw(6) << "$";	// 5 spaces of padding, then dollar sign
+			cout << setfill(' ') << setw(9) << M;	// "Monthly Payment" field is 9 digits wide
+
+			cout << setfill(' ') << setw(10) << "$";// 10 spaces of padding
+			cout << setfill(' ') << setw(9) << mi;	// "Monthly Interest" field is 9 digits wide
+
+			cout << setfill(' ') << setw(10) << "$";// 10 spaces of padding
+			cout << setfill(' ') << setw(9) << mp;	// "Principle payment" field is 9 digits wide
+			
+			cout << setfill(' ') << setw(10) << "$";// 9 spaces of padding
+			cout << setfill(' ') << setw(10) << rb; // "Remaining Balance" field is 10 digits wide
 			cout << endl;
 
 			lc++;
