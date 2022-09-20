@@ -1,8 +1,7 @@
-// COP3014 - Assignment Number 1
-// Purpose: Coin Dispenser Machine, and, Dollar Dispenser Machine
-// Concepts: C++ basics, I/O design, data types and arithmetic operators
+// COP3014 - Assignment Number 2
+// Purpose: Mortgage Calculator with loop function
 // Author: Lucas Benitez, lbenitez2019@gmail.com
-// Last edited: 9/7/2022
+// Last edited: 9/19/2022
 
 
 #include <iostream>							// Includes functions to read and write from std i/o streams.
@@ -27,29 +26,26 @@ int main()
 	while (STRT == 'y' || STRT == 'Y')
 	{
 
-		cout << "enter loan amount (in thousands): "; // ask for loan amount
+		cout << "Enter loan amount (in thousands): ";	// ask for loan amount
 		cin >> P;
-		P = P * 1000;	// convert to thousands
+		P = P * 1000;									// convert to thousands
 
-		cout << "enter interest rate: ";	// ask for interest rate
+		cout << "Enter interest rate: ";				// ask for interest rate
 		cin >> r;
-		r = r / 100 / 12;	// convert from annual to monthly percentage rate
+		r = r / 100 / 12;								// convert from annual to monthly percentage rate
 
-		cout << "enter length of loan (in months): ";	// ask for lenght of loan in months
+		cout << "Enter length of loan (in months): ";	// ask for lenght of loan in months
 		cin >> n;
 
-
-		// equation 
+		// Compute total mortgage payment 
 		M = P * (r * pow(1 + r, n)) / (pow(1 + r, n) - 1);
-		cout << "the value of M is: " << M << endl;
 
 		double mi;	      // monthly interest amount
 		double mp;		  // monthly principle amount
 		double rb = P;	  // remaining balance
 		int lc = 1;	      // loop counter
 
-		// Table header
-		// field width shown below for formatting
+		// Table header (field width shown below for formatting)
 		//        12345 12345678901234567 123456789012345678 123456789012345678 123456789012345678901
 		cout << "-------------------------------------------------------------------------------------" << endl;
 		cout << "| Mth | Monthly payment | Interest payment | Priciple payment | Remaining balance   |" << endl;
@@ -60,8 +56,6 @@ int main()
 			mp = M - mi;  // calculate monthly priciple amount
 			rb = rb - mp; // calculate remaining balance 
 
-			//cout << std::setfill(' ') << std::setw(14);
-			//cout << "  " << lc << "       $" << M << "             $" << setfill(' ') << setw(5) << mi << "            $" << mp << "              $" << rb << endl;
 			cout << setfill(' ') << setw(4) << lc;
 			cout << "      $" << setfill(' ') << setw(10) << M;
 			cout << "      $" << setfill(' ') << setw(10) << mi;
