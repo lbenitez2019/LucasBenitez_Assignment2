@@ -1,6 +1,0 @@
-			cout << "  " << setfill('.') << setw(4) << lc;
-			cout << "    $" << setfill('.') << setw(10) << M;
-			cout << "       $" << setfill('.') << setw(10) << mi;
-			cout << "       $" << setfill('.') << setw(10) << mp;
-			cout << "          $" << setfill('.') << setw(10) << rb;
-			cout << endl;
